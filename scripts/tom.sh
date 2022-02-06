@@ -1,3 +1,4 @@
+#!/bin/bash
 cd /tmp
 echo "Adding user"
 adduser --quiet --disabled-password --shell /bin/bash --home /home/cisco --gecos "User" cisco --ingroup cisco

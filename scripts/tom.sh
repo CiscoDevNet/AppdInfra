@@ -1,5 +1,5 @@
 cd /tmp
-adduser --quiet --disabled-password --shell /bin/bash --home /home/cisco --gecos "User" cisco --ingroup cisco"
+adduser --quiet --disabled-password --shell /bin/bash --home /home/cisco --gecos "User" cisco --ingroup cisco
 echo "cisco:cisco" | chpasswd
 sudo mkdir -p /usr/local/apache/apache-tomcat-7
 sudo mkdir -p /usr/local/apache/images

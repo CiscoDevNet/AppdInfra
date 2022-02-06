@@ -185,6 +185,21 @@ resource "null_resource" "vm_node_init" {
     }
   }
 
+  provisioner "remote-exec" {
+    inline = [
+        "adduser --quiet --disabled-password --shell /bin/bash --home /home/cisco --gecos "User" cisco --ingroup cisco",
+        "echo "cisco:cisco" | chpasswd",
+    ]
+    connection {
+      type = "ssh"
+      host = "${vsphere_virtual_machine.vm_deploy[count.index].default_ip_address}"
+      user = "root"
+      password = "${local.root_password}"
+      port = "22"
+      agent = false
+    }
+  }
+
 }
 
 output "vm_deploy" {
